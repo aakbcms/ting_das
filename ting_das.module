@@ -64,7 +64,7 @@ function ting_das_libraries_info() {
 /**
  * Implements hook_ding_entity_buttons().
  */
-function ting_das_ding_entity_buttons($type, $entity, $widget = 'default', $buttons = array()) {
+function ting_das_ding_entity_buttons($type, $entity, $view_mode, $widget = 'default', $buttons = array()) {
   $button = '';
 
   if (_ting_das_show_button($type, $entity, $buttons)) {
