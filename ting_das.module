@@ -196,7 +196,7 @@ function ting_das_order_form($form_id, &$form_state, TingEntity $entity) {
 
     $form['loaner_id'] = array(
       '#type' => 'value',
-      '#title' => $creds['library_card_number'],
+      '#value' => $creds['library_card_number'],
     );
 
     $form['name'] = array(
