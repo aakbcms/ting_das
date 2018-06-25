@@ -1,8 +1,11 @@
 <?php
+
 /**
  * @file
- *
  */
+
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 
 /**
  * Class TingDasCopyRequest.
@@ -165,7 +168,7 @@ class TingDasCopyRequest {
    *   The users interest date in the format given from now.
    */
   public function getUserInterestDate($format = 'Y-m-d') {
-    $date = strtotime('+'.$this->userInterestDays.' day');
+    $date = strtotime('+' . $this->userInterestDays . ' day');
     return date($format, $date);
   }
 
@@ -306,6 +309,9 @@ class TingDasCopyRequest {
     return $this;
   }
 
+  /**
+   *
+   */
   public function getIssueOfComponent() {
     return $this->issueOfComponent;
   }
@@ -370,7 +376,7 @@ class TingDasCopyRequest {
     );
 
     try {
-      $client = new GuzzleHttp\Client();
+      $client = new Client();
       $response = $client->request('POST', $this->url, $options);
 
       if ($response->getStatusCode() == 204 && $response->getReasonPhrase() == 'ACT') {
@@ -378,7 +384,7 @@ class TingDasCopyRequest {
         return TRUE;
       }
     }
-    catch (\GuzzleHttp\Exception\GuzzleException $exception) {
+    catch (GuzzleException $exception) {
       watchdog_exception('ting_das', $exception);
     }
 
@@ -386,7 +392,7 @@ class TingDasCopyRequest {
   }
 
   /**
-   * Build XML message
+   * Build XML message.
    *
    * @return string
    *   The message as XML.
@@ -413,4 +419,5 @@ class TingDasCopyRequest {
 
     return $xml->asXML();
   }
+
 }

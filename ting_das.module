@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Handle the integration of digital article service (DAS) into the CMS.
@@ -60,7 +61,6 @@ function ting_das_libraries_info() {
   );
 }
 
-
 /**
  * Implements hook_ding_entity_buttons().
  */
@@ -104,7 +104,6 @@ function ting_das_ding_entity_buttons($type, $entity, $view_mode, $widget = 'def
 
 /**
  * Entity button ajax callback handler.
- *
  *
  * @param $entity
  *
@@ -255,7 +254,6 @@ function ting_das_order_form($form_id, &$form_state, TingEntity $entity) {
   return $form;
 }
 
-
 /**
  * Mail validation.
  */
@@ -356,7 +354,7 @@ function _ting_das_show_button($type, TingEntity $entity, $buttons) {
   $types = array_filter(_ting_das_get_default_well_types());
   if ($type == 'ding_entity' && in_array(drupal_strtolower($entity->getType()), $types)) {
     foreach ($buttons as $button) {
-      if (!empty($button) && isset($button[0]['#markup']) && strpos($button[0]['#markup'], 'button-see-online') !== false ) {
+      if (!empty($button) && isset($button[0]['#markup']) && strpos($button[0]['#markup'], 'button-see-online') !== FALSE) {
         return FALSE;
       }
     }

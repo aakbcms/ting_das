@@ -25,7 +25,7 @@ function ting_das_admin_settings_form() {
     '#default_value' => isset($defaults['url']) ? $defaults['url'] : '',
   );
 
-  // Username / password
+  // Username / password.
   $form['ting_das']['username'] = array(
     '#type' => 'textfield',
     '#title' => t('Username'),

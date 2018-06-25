@@ -1,46 +1,46 @@
 .popupbar .popupbar-container {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .popupbar .popupbar-container .digital-order-form .popupbar-title {
-    padding-top: 40px;
-    font-size: 18px;
-    line-height: 24px;
-    margin-top: -7%;
-    margin-bottom: 20px;
+  padding-top: 40px;
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: -7%;
+  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 600px) {
-    .popupbar .digital-order-form .form-item.form-item-name,
-    .popupbar .digital-order-form .form-item.form-item-mail {
-        width: 48.5%;
-        float: left;
-        margin-right: 3%
-    }
+  .popupbar .digital-order-form .form-item.form-item-name,
+  .popupbar .digital-order-form .form-item.form-item-mail {
+    width: 48.5%;
+    float: left;
+    margin-right: 3%;
+  }
 
-    .popupbar .digital-order-form .form-item.form-item-mail {
-        margin-right: 0;
-    }
+  .popupbar .digital-order-form .form-item.form-item-mail {
+    margin-right: 0;
+  }
 
-    .popupbar .digital-order-form .form-item-fbs-preferred-branch,
-    .popupbar .digital-order-form .form-item-interest-period {
-        width: 48.5%;
-        float: left;
-        margin-right: 3%;
-    }
+  .popupbar .digital-order-form .form-item-fbs-preferred-branch,
+  .popupbar .digital-order-form .form-item-interest-period {
+    width: 48.5%;
+    float: left;
+    margin-right: 3%;
+  }
 
-    .popupbar .digital-order-form .form-item-interest-period {
-        margin-right: 0;
-    }
+  .popupbar .digital-order-form .form-item-interest-period {
+    margin-right: 0;
+  }
 
-    .popupbar .digital-order-form .form-type-markup {
-        float: left;
-    }
+  .popupbar .digital-order-form .form-type-markup {
+    float: left;
+  }
 }
 
 @media screen and (max-width: 600px) {
-    .popupbar {
-        height: 90% !important;
-        overflow-y: auto !important;
-    }
+  .popupbar {
+    height: 90% !important;
+    overflow-y: auto !important;
+  }
 }
