@@ -21,7 +21,7 @@ function ting_das_admin_settings_form() {
   $form['ting_das']['url'] = array(
     '#type' => 'textfield',
     '#title' => t('End point'),
-    '#description' => t('The service endpoint for "placeCopyRequest". E.g https://developer.statsbiblioteket.dk/elba-webservices/services/placeCopyRequest'),
+    '#description' => t('The service endpoint for "placeCopyRequest", e.g. https://developer.statsbiblioteket.dk/elba-webservices/services/placeCopyRequest'),
     '#default_value' => isset($defaults['url']) ? $defaults['url'] : '',
   );
 
