@@ -126,7 +126,6 @@ function ting_das_ajax($entity) {
     $commands[] = ajax_command_ding_popup('ting_das', t('Error'), '<p>' . t('Unable to load information about the material.') . '</p>', array('refresh' => FALSE));
   }
   else {
-
     $form = drupal_get_form('ting_das_order_form', $entity);
     $content = drupal_render($form);
     $commands[] = ajax_command_ding_popup('ting_das', t('Order digital copy'), $content, array('refresh' => TRUE));
