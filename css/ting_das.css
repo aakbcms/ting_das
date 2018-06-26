@@ -10,6 +10,10 @@
   margin-bottom: 20px;
 }
 
+.popupbar .popupbar-container .digital-order-form p {
+  margin-bottom: 10px;
+}
+
 @media screen and (min-width: 600px) {
   .popupbar .digital-order-form .form-item.form-item-name,
   .popupbar .digital-order-form .form-item.form-item-mail {
@@ -35,6 +39,10 @@
 
   .popupbar .digital-order-form .form-type-markup {
     float: left;
+  }
+
+  .popupbar .digital-order-form .form-type-markup a {
+    margin: 0;
   }
 }
 

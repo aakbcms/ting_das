@@ -64,17 +64,19 @@ function ting_das_admin_settings_form() {
   );
 
   $form['ting_das_text']['description'] = array(
-    '#type' => 'textarea',
+    '#type' => 'text_format',
     '#title' => t('Description about the form (prefix) or service'),
     '#rows' => 8,
-    '#default_value' => isset($defaults['description']) ? $defaults['description'] : '',
+    '#format' => isset($defaults['description']) ? $defaults['description']['format'] : NULL,
+    '#default_value' => isset($defaults['description']) ? $defaults['description']['value'] : '',
   );
 
   $form['ting_das_text']['gdpr'] = array(
-    '#type' => 'textarea',
+    '#type' => 'text_format',
     '#title' => t('Description of data usage (GDPR)'),
     '#rows' => 8,
-    '#default_value' => isset($defaults['gdpr']) ? $defaults['gdpr'] : '',
+    '#format' => isset($defaults['gdpr']) ? $defaults['gdpr']['format'] : NULL,
+    '#default_value' => isset($defaults['gdpr']) ? $defaults['gdpr']['value'] : '',
   );
 
   return system_settings_form($form);

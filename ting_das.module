@@ -73,7 +73,7 @@ function ting_das_ding_entity_buttons($type, $entity, $view_mode, $widget = 'def
         $display_button = TRUE;
         if (user_is_logged_in()) {
           $creds = ding_user_get_creds();
-          $display_button = isset($creds['resident']) && $creds['resident'];
+          //$display_button = isset($creds['resident']) && $creds['resident'];
         }
 
         if ($display_button) {
@@ -172,7 +172,7 @@ function ting_das_order_form($form_id, &$form_state, TingEntity $entity) {
 
     $form['description'] = array(
       '#prefix' => '<div class="form-item form-type-markup description">',
-      '#markup' => nl2br(check_markup($texts['description'], 'filtered_html')),
+      '#markup' => check_markup($texts['description']['value'], $texts['description']['format']),
       '#suffix' => '</div>',
     );
 
@@ -222,7 +222,7 @@ function ting_das_order_form($form_id, &$form_state, TingEntity $entity) {
     if (isset($texts['gdpr'])) {
       $form['gdpr'] = array(
         '#prefix' => '<div class="form-item form-type-markup gdpr-text">',
-        '#markup' => nl2br(check_markup($texts['gdpr'], 'filtered_html')),
+        '#markup' => check_markup($texts['gdpr']['value'], $texts['gdpr']['format']),
         '#suffix' => '</div>',
       );
     }
