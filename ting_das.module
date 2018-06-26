@@ -90,6 +90,7 @@ function ting_das_ding_entity_buttons($type, $entity, $view_mode, $widget = 'def
                     'use-ajax',
                   ),
                   'id' => 'das-order-' . $entity->id,
+                  'onclick' => 'wt.sendinfo({ linkId: "open_order_digital_copy" });'
                 ),
                 'html' => FALSE,
               ),
@@ -234,6 +235,9 @@ function ting_das_order_form($form_id, &$form_state, TingEntity $entity) {
         'callback' => 'ting_das_order_form_ajax_callback',
       ),
       '#value' => t('Order digital copy'),
+      '#attributes' => array(
+        'onclick' => 'wt.sendinfo({ linkId: "order_digital_copy" });',
+      ),
     );
   }
   else {
