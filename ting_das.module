@@ -65,49 +65,55 @@ function ting_das_libraries_info() {
  * Implements hook_ding_entity_buttons().
  */
 function ting_das_ding_entity_buttons($type, $entity, $view_mode, $widget = 'default', $buttons = array()) {
-  $button = '';
-
   if (_ting_das_show_button($type, $entity, $buttons)) {
     switch ($widget) {
       case 'ajax':
         drupal_add_library('system', 'drupal.ajax');
 
-        $button = array(
-          array(
-            '#theme' => 'link',
-            '#text' => t('Order digital copy'),
-            '#path' => 'das/' . $entity->id . '/order',
-            '#options' => array(
-              'attributes' => array(
-                'class' => array(
-                  'action-button',
-                  'button-see-online',
-                  'use-ajax',
+        $display_button = TRUE;
+        if (user_is_logged_in()) {
+          $creds = ding_user_get_creds();
+          $display_button = isset($creds['resident']) && $creds['resident'];
+        }
+
+        if ($display_button) {
+          return array(
+            array(
+              '#theme' => 'link',
+              '#text' => t('Order digital copy'),
+              '#path' => 'das/' . $entity->id . '/order',
+              '#options' => array(
+                'attributes' => array(
+                  'class' => array(
+                    'action-button',
+                    'button-see-online',
+                    'use-ajax',
+                  ),
+                  'id' => 'das-order-' . $entity->id,
                 ),
-                'id' => 'das-order-' . $entity->id,
+                'html' => FALSE,
               ),
-              'html' => FALSE,
-            ),
-            '#attached' => array(
-              'css' => array(
-                drupal_get_path('module', 'ting_das') . '/css/ting_das.css',
+              '#attached' => array(
+                'css' => array(
+                  drupal_get_path('module', 'ting_das') . '/css/ting_das.css',
+                ),
               ),
             ),
-          ),
-        );
+          );
+        }
         break;
     }
   }
-
-  return $button;
 }
 
 /**
  * Entity button ajax callback handler.
  *
  * @param $entity
+ *   The entity that the order is about.
  *
  * @return array
+ *   Ajax commands based on the current state and the entity given.
  */
 function ting_das_ajax($entity) {
   $commands = array();
@@ -136,17 +142,9 @@ function ting_das_ajax($entity) {
 }
 
 /**
- * Defines the order copy form.
+ * Implements hook_form().
  *
- * @param string $form_id
- *   The forms id.
- * @param array $form_state
- *   The current state of the form.
- * @param \TingEntity $entity
- *   The entity the form was activated on.
- *
- * @return array
- *   The form.
+ * Defines the place order form.
  */
 function ting_das_order_form($form_id, &$form_state, TingEntity $entity) {
   $form = array(
@@ -174,7 +172,7 @@ function ting_das_order_form($form_id, &$form_state, TingEntity $entity) {
 
     $form['description'] = array(
       '#prefix' => '<div class="form-item form-type-markup description">',
-      '#markup' => nl2br(check_plain($texts['description'])),
+      '#markup' => nl2br(check_markup($texts['description'], 'filtered_html')),
       '#suffix' => '</div>',
     );
 
@@ -224,7 +222,7 @@ function ting_das_order_form($form_id, &$form_state, TingEntity $entity) {
     if (isset($texts['gdpr'])) {
       $form['gdpr'] = array(
         '#prefix' => '<div class="form-item form-type-markup gdpr-text">',
-        '#markup' => nl2br(check_plain($texts['gdpr'])),
+        '#markup' => nl2br(check_markup($texts['gdpr'], 'filtered_html')),
         '#suffix' => '</div>',
       );
     }

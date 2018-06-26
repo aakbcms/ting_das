@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * Client to communicate with the Digital Article Services (DAS).
  */
 
 use GuzzleHttp\Exception\GuzzleException;
@@ -366,6 +367,9 @@ class TingDasCopyRequest {
 
   /**
    * Send request to the service.
+   *
+   * @return bool
+   *   TRUE if request was send else FALSE.
    */
   public function send() {
     $options = array(
