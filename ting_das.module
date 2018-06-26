@@ -72,8 +72,14 @@ function ting_das_ding_entity_buttons($type, $entity, $view_mode, $widget = 'def
 
         $display_button = TRUE;
         if (user_is_logged_in()) {
-          $creds = ding_user_get_creds();
-          //$display_button = isset($creds['resident']) && $creds['resident'];
+          try {
+            $creds = ding_user_get_creds();
+            $display_button = isset($creds['resident']) && $creds['resident'];
+          }
+          catch (DingProviderAuthException $exception) {
+            // This is okay as the use simply was not logged in as an provider
+            // user. So do noting in this case.
+          }
         }
 
         if ($display_button) {
