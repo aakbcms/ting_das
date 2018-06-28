@@ -15,9 +15,12 @@
 }
 
 @media screen and (min-width: 600px) {
-  .popupbar .digital-order-form .form-item.form-item-name,
-  .popupbar .digital-order-form .form-item.form-item-mail {
-    width: 48.5%;
+  .popupbar .digital-order-form > div > p {
+    display: none;
+  }
+
+  .popupbar .digital-order-form .form-item.form-item-name,.popupbar .digital-order-form .form-item.form-item-mail {
+    width:48.5%;
     float: left;
     margin-right: 3%;
   }
@@ -26,8 +29,7 @@
     margin-right: 0;
   }
 
-  .popupbar .digital-order-form .form-item-fbs-preferred-branch,
-  .popupbar .digital-order-form .form-item-interest-period {
+  .popupbar .digital-order-form .form-item-fbs-preferred-branch,.popupbar .digital-order-form .form-item-interest-period {
     width: 48.5%;
     float: left;
     margin-right: 3%;
@@ -45,23 +47,32 @@
     margin: 0;
   }
 
-  .popupbar .digital-order-form .popupbar-container .form-submit {
+  .popupbar .digital-order-form .form-submit {
     width: 31.333%;
     float: left;
     margin-right: 3%
+  }
+
+  .popupbar #popupbar-ting_das .messages {
+    margin-bottom: 55px;
+    margin-top: -40px;
+    display: block;
+  }
+
+  .popupbar .digital-order-form .form-item select.error {
+    width: 100%;
   }
 }
 
 @media screen and (max-width: 600px) {
   .popupbar {
-    height: 90% !important;
+    height:90% !important;
     overflow-y: auto !important;
   }
 }
-
 @media screen and (max-height: 750px) {
   .popupbar {
-    height: 100% !important;
+    height:100% !important;
     overflow-y: auto !important;
   }
 }
