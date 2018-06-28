@@ -44,11 +44,24 @@
   .popupbar .digital-order-form .form-type-markup a {
     margin: 0;
   }
+
+  .popupbar .digital-order-form .popupbar-container .form-submit {
+    width: 31.333%;
+    float: left;
+    margin-right: 3%
+  }
 }
 
 @media screen and (max-width: 600px) {
   .popupbar {
     height: 90% !important;
+    overflow-y: auto !important;
+  }
+}
+
+@media screen and (max-height: 750px) {
+  .popupbar {
+    height: 100% !important;
     overflow-y: auto !important;
   }
 }
